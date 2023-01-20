@@ -3,7 +3,6 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -97,30 +96,43 @@ func Create(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Success add todo " + t.Name))
 	*/
 
-	var response Response
-
 	db := Connect()
+	if r.Method == "POST" {
+		name := r.FormValue("name")
+		insForm, err := db.Prepare("INSERT INTO todos_table(name) VALUES(?)")
+		if err != nil {
+			panic(err.Error())
+		}
+		insForm.Exec(name)
+		log.Println("INSERT: Name: " + name)
+	}
 	defer db.Close()
+	http.Redirect(w, r, "/", 301)
 
-	err := r.ParseMultipartForm(4096)
-	if err != nil {
-		panic(err)
-	}
-	name := r.FormValue("name")
+	// var response Response
 
-	_, err = db.Exec("INSERT INTO todos_table(name) VALUES(?, ?)", name)
+	// db := Connect()
+	// defer db.Close()
 
-	if err != nil {
-		log.Print(err)
-		return
-	}
-	response.Status = 200
-	response.Message = "Insert data successfully"
-	fmt.Print("Insert data to database")
+	// err := r.ParseMultipartForm(4096)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// name := r.FormValue("name")
 
-	w.Header().Set("Content-Type", "application/json")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	json.NewEncoder(w).Encode(response)
+	// _, err = db.Exec("INSERT INTO todos_table(name) VALUES(?, ?)", name)
+
+	// if err != nil {
+	// 	log.Print(err)
+	// 	return
+	// }
+	// response.Status = 200
+	// response.Message = "Insert data successfully"
+	// fmt.Print("Insert data to database")
+
+	// w.Header().Set("Content-Type", "application/json")
+	// w.Header().Set("Access-Control-Allow-Origin", "*")
+	// json.NewEncoder(w).Encode(response)
 }
 
 // Get is a handler for get todos API
