@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	_ "assigment-1/docs"
+	_ "GLIM_Hacktiv8/golang-intermediate/assigment-1/docs"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"

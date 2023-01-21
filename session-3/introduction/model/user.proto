@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package model;
+
+option go_package = "GLIM_Hacktiv8/golang-intermediate/session-3/introduction";
+
+enum UserGender {
+    UNDEFINED = 0;
+    MALE = 1;
+    FEMALE = 2;
+}
+
+/*
+Representasi di golang
+
+type UserGender int32
+
+const {
+    UserGender_UNDEFINED UserGender = 0
+    UserGender_MALE UserGender = 1
+    UserGender_FEMALE UserGender = 2
+}
+
+*/
+
+message User {
+    string id = 1;
+    string username = 2;
+    string password = 3;
+    UserGender gender = 4;
+}
+
+message UserList {
+    repeated User list = 1;
+}
+
+/*
+Representasi di golang
+
+type User struct {
+    Id          string
+    Name        string
+    Password    string
+    Gender      UserGender
+}
+
+type UserList struct {
+    List        []+User
+}
+*/
