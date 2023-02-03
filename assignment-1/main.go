@@ -1,7 +1,9 @@
 package main
 
 import (
+	"GLIM_Hacktiv8/golang-intermediate/assignment-1/controller"
 	_ "GLIM_Hacktiv8/golang-intermediate/assignment-1/docs"
+	"GLIM_Hacktiv8/golang-intermediate/assignment-1/service"
 )
 
 /*
@@ -13,7 +15,7 @@ type Todo struct {
 
 // var Todos []*Todo
 
-const baseURL = "0.0.0.0:8080"
+// const baseURL = "0.0.0.0:8080"
 
 // @title Todo Application
 // @version 1.0
@@ -24,8 +26,8 @@ const baseURL = "0.0.0.0:8080"
 // @BasePath /
 func main() {
 
-	Connecting()
-	Routing()
+	service.Connecting()
+	controller.Routing()
 	/*
 		//serve http server
 		 log.Println("Listening to url: " + baseURL)

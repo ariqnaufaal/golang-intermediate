@@ -1,9 +1,8 @@
 package main
 
 import (
-	"fmt"
-
 	model "GLIM_Hacktiv8/golang-intermediate/session-3/introduction/model"
+	"log"
 )
 
 func main() {
@@ -20,6 +19,8 @@ func main() {
 			user1,
 		},
 	}
+
+	log.Println("userList", userList)
 
 	var garage1 = &model.Garage{
 		Id:   "g001",
@@ -42,9 +43,12 @@ func main() {
 		},
 	}
 
-	// Original
-	fmt.Println("# ===== Original\n			%#v \n ", user1)
+	log.Println("garageListByUser", garageListByUser)
+	/*
+		// Original
+		fmt.Println("# ===== Original\n			%#v \n ", user1)
 
-	// As String
-	fmt.Println("# ===== As String\n 		%v	\n", user1.String())
+		// As String
+		fmt.Println("# ===== As String\n 		%v	\n", user1.String())
+	*/
 }

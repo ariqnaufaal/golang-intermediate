@@ -1,9 +1,11 @@
-package main
+package service
 
 import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	repo "GLIM_Hacktiv8/golang-intermediate/assignment-1/repository"
 
 	"github.com/gorilla/mux"
 )
@@ -36,7 +38,7 @@ func Get(w http.ResponseWriter, r *http.Request) {
 	*/
 
 	w.Header().Set("Content-Type", "application/json")
-	var todos []Todo
+	var todos []repo.Todo
 	DB.Find(&todos)
 	json.NewEncoder(w).Encode(todos)
 
@@ -92,7 +94,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	*/
 
 	w.Header().Set("Content-Type", "application/json")
-	var todo Todo
+	var todo repo.Todo
 
 	json.NewDecoder(r.Body).Decode(&todo)
 	fmt.Println(r.Body)
@@ -123,7 +125,7 @@ func GetByID(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	var todo Todo
+	var todo repo.Todo
 	DB.First(&todo, params["id"])
 	json.NewEncoder(w).Encode(todo)
 
@@ -153,7 +155,7 @@ func Put(w http.ResponseWriter, r *http.Request) {
 	*/
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	var todo Todo
+	var todo repo.Todo
 	DB.First(&todo, params["id"])
 	json.NewDecoder(r.Body).Decode(&todo)
 	DB.Save(&todo)
@@ -181,7 +183,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	*/
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	var todo Todo
+	var todo repo.Todo
 	DB.Delete(&todo, params["id"])
 	json.NewEncoder(w).Encode(todo)
 }
