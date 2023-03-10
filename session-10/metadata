@@ -1,0 +1,19 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2023-03-12T13:28:28.777Z" entityID="http://localhost:7777/saml/metadata">
+  <SPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2023-03-12T13:28:28.7768135Z" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="false" WantAssertionsSigned="true">
+    <KeyDescriptor use="encryption">
+      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+          <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">MIIDCTCCAfGgAwIBAgIUOPRh0v8UMIeqHTGBWtUa1LcZmw0wDQYJKoZIhvcNAQELBQAwFDESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTIzMDMxMDEzMjMxN1oXDTI0MDMwOTEzMjMxN1owFDESMBAGA1UEAwwJbG9jYWxob3N0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsNZsADHx1YGkh2e8gtgHzIsIZq4g9Ck77xbkxbfLGZ8B+P0tYuyRGL98Xlz7cdGtC9AHvrS1COvIaNHvVgQZ5j5U+cShb3VIlqLtte1+0hVx5jzK2GFXjf860p8VYEk+wnCIJa6Ri67Ds3qH0FqgfJCCi0wwDOvuK33o5pi28v089a2fwZ0s5y1XBLrXtrhbWe4gLTsZbfL/Y+TVa/1YobQ5fCsw7jh3TEKszYSZq8JcJGaKbyHi+bBtuLp1LXuoOkjD7ahWTQPa0BV2yqs4A8YNfxI/XeCIdMC6ftS6G7Yss/eNuDjarSPgqLVgaMBytigFYZ6OOBtdNe4F6A6TqwIDAQABo1MwUTAdBgNVHQ4EFgQUJbPeSe3o6du1wN43NbMC22ovmskwHwYDVR0jBBgwFoAUJbPeSe3o6du1wN43NbMC22ovmskwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEANe3aK5tX1yKey4j7ibtN9XkKigqOQni13LCZp6MN/1jNsf1rgKqNOei5Pi5y+pwTA8hRMdAOHhI9+Q/RfqU7wnNNOW1CL+fA7PfEHsXOXqxERMxMoNi1zVonMH+wUawEDEwLax93dbBmMlA1D1GAJ2SGOQuNLJau9f5npncei6ej4v5zh0MdsW/lgENjRONL9ImPpN4cA1XOZ/QqfOhWjP+dnmYBLwuMj4C7DIpekIBite6o1sAw3iKisWnZgA+YNhagujod80WRSKYJ+9CpWMweMicZ60CyYCss3a2tlN4M2JUMVVXY1SjGemZc/Dr+nD/EkHj08WANmN5H/6RQNA==</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+      <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"></EncryptionMethod>
+      <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"></EncryptionMethod>
+      <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"></EncryptionMethod>
+      <EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"></EncryptionMethod>
+    </KeyDescriptor>
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:7777/saml/slo" ResponseLocation="http://localhost:7777/saml/slo"></SingleLogoutService>
+    <NameIDFormat></NameIDFormat>
+    <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:7777/saml/acs" index="1"></AssertionConsumerService>
+    <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="http://localhost:7777/saml/acs" index="2"></AssertionConsumerService>
+  </SPSSODescriptor>
+</EntityDescriptor>
