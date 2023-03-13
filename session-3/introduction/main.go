@@ -2,7 +2,10 @@ package main
 
 import (
 	model "GLIM_Hacktiv8/golang-intermediate/session-3/introduction/model"
+	"bytes"
 	"log"
+
+	"github.com/golang/protobuf/jsonpb"
 )
 
 func main() {
@@ -21,6 +24,16 @@ func main() {
 	}
 
 	log.Println("userList", userList)
+
+	log.Printf("user1 %#v\n", user1)
+	log.Printf("user1.String() %#v\n", user1.String())
+
+	// tes jsonpb marshal (marshalling proto to json)
+	var (
+		buf bytes.Buffer
+	)
+	_ = (&jsonpb.Marshaler{}).Marshal(&buf, user1)
+	log.Printf("user1.jsonString %#v\n", buf.String())
 
 	var garage1 = &model.Garage{
 		Id:   "g001",
@@ -44,11 +57,25 @@ func main() {
 	}
 
 	log.Println("garageListByUser", garageListByUser)
+
 	/*
-		// Original
+		// =========== Original
 		fmt.Println("# ===== Original\n			%#v \n ", user1)
 
-		// As String
+		// =========== As String
 		fmt.Println("# ===== As String\n 		%v	\n", user1.String())
+
+		// =========== as json string
+	*/
+
+	/*
+		var buf bytes.Buffer
+		err1 := (&jsonpb.Marshaler{}).Marshal(&buf, garageList)
+		if err1 != nil {
+			fmt.Println(err1.Error())
+			os.Exit(0)
+		}
+		jsonString := buf.String()
+		fmt.Printf("# === As JSON String \n		&v \n", jsonString)
 	*/
 }
