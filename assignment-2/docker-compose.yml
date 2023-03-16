@@ -3,4 +3,4 @@ services:
   assignment-2:
     image: assignment2:1.0
     ports:
-      - "9000:9000"
+      - "8080:8080"
