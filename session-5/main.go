@@ -21,6 +21,10 @@ type CustomValidator struct {
 	validator *validator.Validate
 }
 
+func (cv *CustomValidator) Validate(i interface{}) error {
+	return cv.validator.Struct(i)
+}
+
 var ActionIndex = func(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("from action index"))
 }
